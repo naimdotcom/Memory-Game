@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .card {
-    @apply w-[100px] h-[100px]
+    @apply w-[100px] h-[100px] border-2 border-blue-500 rounded-2xl
 }

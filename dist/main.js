@@ -1,6 +1,7 @@
 const grid = document.getElementById("boxes");
+let result = document.getElementsByClassName('Result');
 let chosenCard = [];
-let chosenCardID = []
+let chosenCardID = [];
 
 let images = [
   {
@@ -81,7 +82,7 @@ let len = (images.length - 2) / 2;
 let leng = images.length - 2;
 
 function shuffle(array) {
-    let len = array.length - 1;
+  let len = array.length - 1;
   for (let i = len; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -96,37 +97,39 @@ function createboard() {
     let imgTag = document.createElement("img");
     imgTag.setAttribute("src", "/webp/LHTblank.png");
     imgTag.setAttribute("data-img", i);
-    imgTag.classList.add('card')
+    imgTag.classList.add("card");
     grid.appendChild(imgTag);
     imgTag.addEventListener("click", flipCard);
   }
 }
 createboard();
 
-function check(){
-    let cards = document.querySelectorAll(".card")
-    console.log(cards);
-    if(chosenCard[0] == chosenCard[1]  ){
-        cards[chosenCardID[0]].setAttribute('src', '/webp/White.png');
-        cards[chosenCardID[1]].setAttribute('src', '/webp/White.png');
-        cards[chosenCardID[1]].removeEventListener('click', flipCard)
-        cards[chosenCardID[0]].removeEventListener('click', flipCard)
-    } else {
-        cards[chosenCardID[0]].setAttribute("src", "/webp/LHTblank.png");
-        cards[chosenCardID[1]].setAttribute("src", "/webp/LHTblank.png");
-    }
-    chosenCard = [];
-    chosenCardID = [];
+function check() {
+  let cards = document.querySelectorAll(".card");
 
+  if (chosenCardID[0] == chosenCardID[1]) {
+    cards[chosenCardID[0]].setAttribute("src", "/webp/LHTblank.png");
+    cards[chosenCardID[1]].setAttribute("src", "/webp/LHTblank.png");
+  }
+  else if (chosenCard[0] == chosenCard[1]) {
+    cards[chosenCardID[0]].setAttribute("src", "/webp/green.png");
+    cards[chosenCardID[1]].setAttribute("src", "/webp/green.png");
+    cards[chosenCardID[1]].removeEventListener("click", flipCard);
+    cards[chosenCardID[0]].removeEventListener("click", flipCard);
+  } else {
+    cards[chosenCardID[0]].setAttribute("src", "/webp/LHTblank.png");
+    cards[chosenCardID[1]].setAttribute("src", "/webp/LHTblank.png");
+  }
+  chosenCard = [];
+  chosenCardID = [];
 }
 
 function flipCard() {
   let imgID = this.getAttribute("data-img");
   chosenCard.push(shuffleimg[imgID].name);
   chosenCardID.push(imgID);
-  this.setAttribute('src', shuffleimg[imgID].img)
-  if(chosenCard.length === 2) {
-    setTimeout( check ,400)
-    
+  this.setAttribute("src", shuffleimg[imgID].img);
+  if (chosenCard.length === 2) {
+    setTimeout(check, 150);
   }
 }
