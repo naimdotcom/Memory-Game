@@ -1,22 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./output.css" />
     <title>Memory Game</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="flex flex-col justify-center items-center gap-7 h-screen">
-        <div class="flex gap-96 font-semibold text-xl">
-            <h5 class="">Result: <span>00</span></h5>
-            <h5 class="">Time: <span>00</span></h5>
+      <div class="flex w-96 justify-between font-semibold text-xl">
+        <h5 class="flex gap-4">
+          Result:
+          <p class="Result">00</p>
+        </h5>
+        <div
+          id="restart"
+          class="bg-slate-900 px-4 py-2 rounded-full text-white"
+        >
+          Restart
         </div>
-        <div id="boxes" class="flex flex-wrap w-[475px] gap-4">
-            
+        <!-- <h5 class="">Time: <span>00</span></h5> -->
+      </div>
+      <div id="boxes" class="flex flex-wrap w-[475px] gap-4"></div>
+      <div
+        id="start"
+        class="font-medium text-lg bg-slate-900 rounded-full px-6 py-2 text-white"
+      >
+        Start
+      </div>
+      <div id="popBox" class="visible-box hiddenbox duration-500">
+        <picture>
+          <img
+            class="w-12 h-auto"
+            src="../webp/right.webp"
+            alt="webp/right.png"
+          />
+        </picture>
+        <div>
+          <h3 class="block my-6 dark:text-white font-[Kalam]">
+            congratulations you memorize all
+          </h3>
         </div>
+        <button
+          id="close"
+          class="bg-red-500 px-6 py-2 text-white rounded-3xl font-[kalam]"
+        >
+          Close
+        </button>
+      </div>
+      <div class="theme absolute top-8 right-10">
+        <button id="thememode" class="bg-csDark text-white rounded-full p-2">
+          <span>DRK</span>
+        </button>
+      </div>
     </main>
-    
+
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
