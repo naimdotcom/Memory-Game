@@ -24,10 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "sun",
       img: "/webp/sun.webp",
     },
-    //   {
-    //     name: "Tree",
-    //     img: "/webp/Tree.webp",
-    //   },
+
     {
       name: "WatterMallon",
       img: "/webp/WatterMallon.webp",
@@ -60,10 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "sun",
       img: "/webp/sun.webp",
     },
-    //   {
-    //     name: "Tree",
-    //     img: "/webp/Tree.webp",
-    //   },
     {
       name: "WatterMallon",
       img: "/webp/WatterMallon.webp",
