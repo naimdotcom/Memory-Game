@@ -2,75 +2,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = [
     {
       name: "duck",
-      img: "/webp/duck.webp",
+      img: "./webp/duck.webp",
     },
     {
       name: "iceCream",
-      img: "/webp/iceCream.webp",
+      img: "./webp/iceCream.webp",
     },
     {
       name: "jackFruit",
-      img: "/webp/jackFruit.webp",
+      img: "./webp/jackFruit.webp",
     },
     {
       name: "StarFish",
-      img: "/webp/StarFish.webp",
+      img: "./webp/StarFish.webp",
     },
     {
       name: "stickIceCream",
-      img: "/webp/stickIceCream.webp",
+      img: "./webp/stickIceCream.webp",
     },
     {
       name: "sun",
-      img: "/webp/sun.webp",
+      img: "./webp/sun.webp",
     },
-    //   {
-    //     name: "Tree",
-    //     img: "/webp/Tree.webp",
-    //   },
+
     {
       name: "WatterMallon",
-      img: "/webp/WatterMallon.webp",
+      img: "./webp/WatterMallon.webp",
     },
     {
       name: "Shell",
-      img: "/webp/Shell.webp",
+      img: "./webp/Shell.webp",
     },
     {
       name: "duck",
-      img: "/webp/duck.webp",
+      img: "./webp/duck.webp",
     },
     {
       name: "iceCream",
-      img: "/webp/iceCream.webp",
+      img: "./webp/iceCream.webp",
     },
     {
       name: "jackFruit",
-      img: "/webp/jackFruit.webp",
+      img: "./webp/jackFruit.webp",
     },
     {
       name: "StarFish",
-      img: "/webp/StarFish.webp",
+      img: "./webp/StarFish.webp",
     },
     {
       name: "stickIceCream",
-      img: "/webp/stickIceCream.webp",
+      img: "./webp/stickIceCream.webp",
     },
     {
       name: "sun",
-      img: "/webp/sun.webp",
+      img: "./webp/sun.webp",
     },
-    //   {
-    //     name: "Tree",
-    //     img: "/webp/Tree.webp",
-    //   },
     {
       name: "WatterMallon",
-      img: "/webp/WatterMallon.webp",
+      img: "./webp/WatterMallon.webp",
     },
     {
       name: "Shell",
-      img: "/webp/Shell.webp",
+      img: "./webp/Shell.webp",
     },
   ];
 
@@ -82,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let thememodebtn = document.getElementById("thememode");
   let close = document.getElementById("close");
   let resultParent = document.getElementById("resultParent");
-  let ThemeImage = [ "/webp/LHTblank.webp" , "/webp/DRKblank.webp" ];
+  let ThemeImage = ["./webp/LHTblank.webp", "./webp/DRKblank.webp"];
   let main = document.getElementById("theme");
   let chosenCard = [];
   let chosenCardID = [];
@@ -134,8 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cards[chosenCardID[0]].setAttribute("src", ThemeImage[num]);
       cards[chosenCardID[1]].setAttribute("src", ThemeImage[num]);
     } else if (chosenCard[0] == chosenCard[1]) {
-      cards[chosenCardID[0]].setAttribute("src", "/webp/green.webp");
-      cards[chosenCardID[1]].setAttribute("src", "/webp/green.webp");
+      cards[chosenCardID[0]].setAttribute("src", "./webp/green.webp");
+      cards[chosenCardID[1]].setAttribute("src", "./webp/green.webp");
       cards[chosenCardID[1]].removeEventListener("click", flipCard);
       cards[chosenCardID[0]].removeEventListener("click", flipCard);
       total.push(chosenCard);
@@ -156,19 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
     main.classList.toggle("dark");
     if (main.classList.length == 1) {
       themeSpan.innerHTML = "LHT";
-      num = 1
+      num = 1;
     } else {
       themeSpan.innerHTML = "DRK";
-      num = 0
+      num = 0;
     }
   }
-  thememodebtn.addEventListener('click', themeMode)
+  thememodebtn.addEventListener("click", themeMode);
   start.addEventListener("click", () => {
     createboard();
     start.classList.add("hidden");
-    restart.classList.remove('hidden'),
-    resultParent.classList.remove('hidden')
-    resultParent.classList.add('flex')
+    restart.classList.remove("hidden"), resultParent.classList.remove("hidden");
+    resultParent.classList.add("flex");
   });
   close.addEventListener("click", () => popBox.classList.toggle("hiddenbox"));
   restart.addEventListener("click", () => {
