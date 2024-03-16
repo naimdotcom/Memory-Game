@@ -78,15 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let result = document.querySelector(".Result");
   let restart = document.getElementById("restart");
   let start = document.getElementById("start");
+  let themeSpan = document.querySelector("#thememode span");
+  let thememodebtn = document.getElementById("thememode");
+  let close = document.getElementById("close");
+  let resultParent = document.getElementById("resultParent");
+  let ThemeImage = [ "/webp/LHTblank.webp" , "/webp/DRKblank.webp" ];
+  let main = document.getElementById("theme");
   let chosenCard = [];
   let chosenCardID = [];
   let total = [];
-  let close = document.getElementById("close");
-  let ThemeImage = "/webp/LHTblank.webp";
-  let len = (images.length - 2) / 2;
-  let leng = images.length - 2;
-
-
+  let num = 0;
 
   // shuffle the array
   function shuffle(array) {
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function createboard() {
     for (let i = 0; i < 16; i++) {
       let imgTag = document.createElement("img");
-      imgTag.setAttribute("src", ThemeImage);
+      imgTag.setAttribute("src", ThemeImage[num]);
       imgTag.setAttribute("data-img", i);
       imgTag.classList.add("card");
       grid.appendChild(imgTag);
@@ -130,8 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let cards = document.querySelectorAll(".card");
 
     if (chosenCardID[0] == chosenCardID[1]) {
-      cards[chosenCardID[0]].setAttribute("src", ThemeImage);
-      cards[chosenCardID[1]].setAttribute("src", ThemeImage);
+      cards[chosenCardID[0]].setAttribute("src", ThemeImage[num]);
+      cards[chosenCardID[1]].setAttribute("src", ThemeImage[num]);
     } else if (chosenCard[0] == chosenCard[1]) {
       cards[chosenCardID[0]].setAttribute("src", "/webp/green.webp");
       cards[chosenCardID[1]].setAttribute("src", "/webp/green.webp");
@@ -139,8 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cards[chosenCardID[0]].removeEventListener("click", flipCard);
       total.push(chosenCard);
     } else {
-      cards[chosenCardID[0]].setAttribute("src", ThemeImage);
-      cards[chosenCardID[1]].setAttribute("src", ThemeImage);
+      cards[chosenCardID[0]].setAttribute("src", ThemeImage[num]);
+      cards[chosenCardID[1]].setAttribute("src", ThemeImage[num]);
     }
     result.textContent = total.length;
     chosenCard = [];
@@ -149,15 +150,30 @@ document.addEventListener("DOMContentLoaded", () => {
       popBox.classList.toggle("hiddenbox");
     }
   }
+  // dark & light mood
+
+  function themeMode() {
+    main.classList.toggle("dark");
+    if (main.classList.length == 1) {
+      themeSpan.innerHTML = "LHT";
+      num = 1
+    } else {
+      themeSpan.innerHTML = "DRK";
+      num = 0
+    }
+  }
+  thememodebtn.addEventListener('click', themeMode)
   start.addEventListener("click", () => {
     createboard();
     start.classList.add("hidden");
+    restart.classList.remove('hidden'),
+    resultParent.classList.remove('hidden')
+    resultParent.classList.add('flex')
   });
   close.addEventListener("click", () => popBox.classList.toggle("hiddenbox"));
   restart.addEventListener("click", () => {
     grid.innerHTML = "";
     result.innerHTML = "0";
-
     createboard();
   });
 });

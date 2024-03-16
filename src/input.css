@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 .card {
-    @apply w-[100px] h-[100px] border-2 border-blue-500 rounded-2xl
+    @apply lg:w-[100px] lg:h-[100px] border-2 border-blue-500 rounded-2xl w-14 h-14
 }
 
 .visible-box{
-    @apply bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-3xl p-12 flex flex-col items-center scale-125 dark:bg-csDark 
+    @apply bg-csWhite absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-3xl lg:p-12 p-8 text-center flex flex-col items-center scale-125 dark:bg-csDark shadow-lg dark:shadow-gray-950/30
+
 }
 .hiddenbox{
     @apply scale-0 -top-11
 }
+
+/* border-2  border-csDark dark:border-csWhite */
