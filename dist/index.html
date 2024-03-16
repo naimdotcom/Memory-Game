@@ -4,27 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./output.css" />
+    <link rel="icon" type="image/x-icon" href="/webp/Logo.png" />
     <title>Memory Game</title>
   </head>
-  <body>
-    <main class="flex flex-col justify-center items-center gap-7 h-screen">
-      <div class="flex w-96 justify-between font-semibold text-xl">
-        <h5 class="flex gap-4">
+  <body id="theme">
+    <main
+      class="flex flex-col py-32 items-center gap-7 h-screen bg-csWhite dark:bg-csDark duration-300"
+    >
+      <a
+        target="_blank"
+        href="https://github.com/naimak659"
+        class="absolute top-4 left-4 shadow-lg rounded-full dark:shadow-csSha dark:shadow-2xl"
+      >
+        <picture>
+          <img class="w-16 h-auto" src="/webp/Logo.png" alt="" />
+        </picture>
+      </a>
+      <div
+        id="resultParent"
+        class="hidden lg:w-96 w-80 items-center font-semibold lg:text-xl text-lg"
+      >
+        <h5
+          class="flex gap-4 mr-auto text-center text-csDark dark:text-csWhite"
+        >
           Result:
-          <p class="Result">00</p>
+          <p class="Result">0</p>
         </h5>
         <div
           id="restart"
-          class="bg-slate-900 px-4 py-2 rounded-full text-white"
+          class="bg-slate-900 lg:px-4 lg:py-2 px-2 py-1 rounded-full text-white dark:bg-csWhite dark:text-csDark hidden"
         >
           Restart
         </div>
-        <!-- <h5 class="">Time: <span>00</span></h5> -->
       </div>
-      <div id="boxes" class="flex flex-wrap w-[475px] gap-4"></div>
+      <div
+        id="boxes"
+        class="grid grid-cols-4 grid-rows-4 lg:w-[464px] w- gap-4"
+      ></div>
       <div
         id="start"
-        class="font-medium text-lg bg-slate-900 rounded-full px-6 py-2 text-white"
+        class="font-medium text-lg bg-csDark rounded-full px-6 py-2 text-white dark:bg-csWhite dark:text-csDark"
       >
         Start
       </div>
@@ -37,19 +56,24 @@
           />
         </picture>
         <div>
-          <h3 class="block my-6 dark:text-white font-[Kalam]">
+          <h3
+            class="block my-6 dark:text-csWhite lg:text-lg text-xs lg:font-semibold font-medium"
+          >
             congratulations you memorize all
           </h3>
         </div>
         <button
           id="close"
-          class="bg-red-500 px-6 py-2 text-white rounded-3xl font-[kalam]"
+          class="bg-red-500 lg:px-6 lg:py-2 px-4 py-2 text-white rounded-3xl text-sm lg:text-lg"
         >
           Close
         </button>
       </div>
       <div class="theme absolute top-8 right-10">
-        <button id="thememode" class="bg-csDark text-white rounded-full p-2">
+        <button
+          id="thememode"
+          class="bg-csDark text-csWhite dark:bg-csWhite dark:text-csDark rounded-full p-2"
+        >
           <span>DRK</span>
         </button>
       </div>
